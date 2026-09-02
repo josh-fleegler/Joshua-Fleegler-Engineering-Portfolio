@@ -97,24 +97,24 @@
   .role{margin-top:18px; font-size:19px; color:var(--ink-soft); max-width:52ch;}
 
   section.category{padding:64px 0; border-bottom:1px solid var(--line-mid);}
-  .category-head{display:flex; align-items:baseline; gap:16px; margin-bottom:32px;}
-  .category-num{font-family:var(--mono); font-size:12px; color:var(--blue);}
-  .category-title{
-    font-family:var(--mono); font-weight:600; font-size:13px;
-    letter-spacing:.1em; text-transform:uppercase; color:var(--ink);
+  .category-head{display:flex; align-items:baseline; gap:18px; margin-bottom:16px; flex-wrap:wrap;}
+  .category-num{font-family:var(--mono); font-size:13px; color:var(--blue);}
+  a.category-title{
+    font-family:var(--mono); font-weight:700; font-size:clamp(26px, 4.2vw, 42px);
+    letter-spacing:-.01em; text-transform:uppercase; color:var(--ink);
+    text-decoration:none; transition:color .15s ease;
   }
-  .category-rule{flex:1; height:1px; background:var(--line-mid);}
+  a.category-title:hover{color:var(--blue-soft);}
+  .category-rule{height:1px; background:var(--line-mid); margin-bottom:32px;}
 
-  a.project-card{
+  .project-card{
     display:grid;
     grid-template-columns:1fr 1fr;
     gap:32px;
     align-items:center;
-    text-decoration:none;
-    color:inherit;
   }
   @media (max-width:760px){
-    a.project-card{grid-template-columns:1fr;}
+    .project-card{grid-template-columns:1fr;}
   }
 
   .project-card .viewport{
@@ -123,17 +123,14 @@
     overflow:hidden;
     border:1px solid var(--line-mid);
     background:var(--paper-raised);
-    transition:border-color .2s ease, box-shadow .2s ease;
   }
   .project-card .viewport img{
     width:100%; height:100%; object-fit:cover; display:block;
   }
-  .project-card:hover .viewport{
-    border-color:var(--blue);
-    box-shadow:0 10px 26px -14px rgba(0,0,0,0.6);
+  .project-card .viewport.contain-fit img{
+    object-fit:contain; padding:14px;
   }
-  .crop{position:absolute; width:16px; height:16px; border:1px solid var(--ink); opacity:.55; transition:border-color .2s ease, opacity .2s ease;}
-  a.project-card:hover .crop{border-color:var(--blue); opacity:1;}
+  .crop{position:absolute; width:16px; height:16px; border:1px solid var(--ink); opacity:.55;}
   .crop.tl{top:10px; left:10px; border-right:none; border-bottom:none;}
   .crop.tr{top:10px; right:10px; border-left:none; border-bottom:none;}
   .crop.bl{bottom:10px; left:10px; border-right:none; border-top:none;}
@@ -143,16 +140,8 @@
   .project-meta h3{
     font-family:var(--mono); font-weight:600; font-size:22px;
     text-transform:uppercase; letter-spacing:.01em; margin-bottom:10px;
-    transition:color .15s ease;
   }
-  a.project-card:hover .project-meta h3{color:var(--blue-soft);}
   .project-meta p{color:var(--ink-soft); font-size:14.5px; max-width:42ch;}
-  .project-meta .view-link{
-    display:inline-flex; align-items:center; gap:6px;
-    margin-top:16px;
-    font-family:var(--mono); font-size:11px; letter-spacing:.08em; text-transform:uppercase;
-    color:var(--blue);
-  }
 
   footer{
     padding:28px 0 40px;
@@ -189,11 +178,11 @@
   <div class="wrap">
     <div class="category-head">
       <span class="category-num">01</span>
-      <span class="category-title">Personal / School Projects</span>
-      <span class="category-rule"></span>
+      <a class="category-title" href="projects/toothless.html">Personal / School Projects</a>
     </div>
+    <div class="category-rule"></div>
 
-    <a class="project-card" href="projects/toothless.html">
+    <div class="project-card">
       <div class="viewport">
         <img src="assets/toothless.jpg" alt="Toothless-inspired quadruped walking robot with 3D-printed dragon head and articulated legs">
         <span class="crop tl"></span><span class="crop tr"></span>
@@ -203,9 +192,8 @@
         <span class="part-no">No. 001</span>
         <h3>Walking Toothless Dragon</h3>
         <p>A 3D-printed, servo-driven quadruped walking robot modeled after Toothless from How to Train Your Dragon.</p>
-        <span class="view-link">View project →</span>
       </div>
-    </a>
+    </div>
   </div>
 </section>
 
@@ -213,12 +201,12 @@
   <div class="wrap">
     <div class="category-head">
       <span class="category-num">02</span>
-      <span class="category-title">Professional / Industry Work</span>
-      <span class="category-rule"></span>
+      <a class="category-title" href="projects/measurement-fixture.html">Professional / Industry Work</a>
     </div>
+    <div class="category-rule"></div>
 
-    <a class="project-card" href="projects/measurement-fixture.html">
-      <div class="viewport">
+    <div class="project-card">
+      <div class="viewport contain-fit">
         <img src="assets/measurement-fixture.png" alt="CAD render of a high-precision measurement fixture">
         <span class="crop tl"></span><span class="crop tr"></span>
         <span class="crop bl"></span><span class="crop br"></span>
@@ -227,9 +215,8 @@
         <span class="part-no">No. 002</span>
         <h3>High-Precision Measurement Fixture</h3>
         <p>A fixture designed to hold tight-tolerance parts steady for repeatable micrometer measurement.</p>
-        <span class="view-link">View project →</span>
       </div>
-    </a>
+    </div>
   </div>
 </section>
 
@@ -237,11 +224,11 @@
   <div class="wrap">
     <div class="category-head">
       <span class="category-num">03</span>
-      <span class="category-title">Research</span>
-      <span class="category-rule"></span>
+      <a class="category-title" href="projects/firearm-safety.html">Research</a>
     </div>
+    <div class="category-rule"></div>
 
-    <a class="project-card" href="projects/firearm-safety.html">
+    <div class="project-card">
       <div class="viewport">
         <svg viewBox="0 0 400 300" preserveAspectRatio="none" style="width:100%;height:100%;display:block;">
           <rect width="400" height="300" fill="#232629"/>
@@ -259,9 +246,8 @@
         <span class="part-no">No. 003</span>
         <h3>Inert Firearm Models</h3>
         <p>Inert firearm models to improve safety.</p>
-        <span class="view-link">View project →</span>
       </div>
-    </a>
+    </div>
   </div>
 </section>
 
