@@ -123,7 +123,7 @@
     .categories-grid{grid-template-columns:1fr; gap:64px;}
   }
 
-  .category-col{display:flex; flex-direction:column;}
+  .category-col{display:flex; flex-direction:column; scroll-margin-top:100px;}
   .category-num{font-family:var(--mono); font-size:12px; color:var(--blue); display:block; margin-bottom:8px;}
   a.category-title{
     font-family:var(--mono); font-weight:700; font-size:clamp(19px, 2.1vw, 25px);
@@ -132,6 +132,7 @@
     display:block; margin-bottom:8px;
   }
   a.category-title:hover{color:var(--blue-soft);}
+  .category-sub{color:var(--ink-soft); font-size:13.5px; margin-bottom:16px;}
   .col-rule{height:1px; background:var(--line-mid); margin-bottom:22px;}
 
   .viewport{
@@ -199,9 +200,10 @@
   <div class="wrap">
     <div class="categories-grid">
 
-      <div class="category-col">
+      <div class="category-col" id="group-projects">
         <span class="category-num">01</span>
         <a class="category-title" href="projects/toothless.html">Group Projects</a>
+        <p class="category-sub">One of several hands-on builds from coursework and team projects.</p>
         <div class="col-rule"></div>
 
         <a class="viewport" href="projects/toothless.html">
@@ -215,9 +217,10 @@
         <p class="col-desc">A 3D-printed, servo-driven quadruped walking robot modeled after Toothless from How to Train Your Dragon.</p>
       </div>
 
-      <div class="category-col">
+      <div class="category-col" id="professional-work">
         <span class="category-num">02</span>
         <a class="category-title" href="projects/measurement-fixture.html">Professional Work</a>
+        <p class="category-sub">A sample from ongoing professional and industry projects.</p>
         <div class="col-rule"></div>
 
         <a class="viewport contain-fit" href="projects/measurement-fixture.html">
@@ -231,9 +234,10 @@
         <p class="col-desc">A fixture designed to hold tight-tolerance parts steady for repeatable micrometer measurement.</p>
       </div>
 
-      <div class="category-col">
+      <div class="category-col" id="research">
         <span class="category-num">03</span>
         <a class="category-title" href="projects/firearm-safety.html">Research</a>
+        <p class="category-sub">One project from ongoing research work.</p>
         <div class="col-rule"></div>
 
         <a class="viewport" href="projects/firearm-safety.html">

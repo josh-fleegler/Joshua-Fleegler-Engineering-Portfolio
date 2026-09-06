@@ -34,6 +34,19 @@
   .mark{color:var(--blue); font-weight:600;}
   nav a{text-decoration:none; color:var(--ink-soft); border-bottom:1px solid transparent; padding-bottom:2px;}
   nav a:hover{color:var(--blue); border-color:var(--blue);}
+  nav.sheet-nav{display:flex; align-items:center; gap:14px;}
+  .nav-btn{
+    display:inline-flex; align-items:center;
+    font-family:var(--mono); font-weight:600; font-size:12.5px;
+    letter-spacing:.06em; text-transform:uppercase;
+    padding:8px 16px;
+    border:1px solid var(--line-mid); color:var(--ink-soft);
+    text-decoration:none;
+    transition:background .15s ease, color .15s ease, border-color .15s ease;
+  }
+  .nav-btn:hover{background:var(--blue); color:#0F1113; border-color:var(--blue);}
+  .nav-btn.primary{border-color:var(--blue); color:var(--blue);}
+  .nav-btn.primary:hover{background:var(--blue); color:#0F1113;}
 
   .hero-photo{
     aspect-ratio:21/5;
@@ -115,7 +128,10 @@
 <header class="sheet-bar">
   <div class="wrap sheet-bar-inner">
     <div><span class="mark">JF</span> &nbsp;Portfolio</div>
-    <nav><a href="../index.html">← Back to projects</a></nav>
+    <nav class="sheet-nav">
+      <a class="nav-btn primary" href="../index.html">← Back to projects</a>
+      <a class="nav-btn" href="../index.html#group-projects">View all Group Projects →</a>
+    </nav>
   </div>
 </header>
 
