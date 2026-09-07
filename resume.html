@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Résumé — Joshua Fleegler</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#1B1E22; --paper-raised:#232629; --line-faint:#2C2F33; --line-mid:#3A3D42;
+    --ink:#EDEEE9; --ink-soft:#B7B9B4; --blue:#6E93C7; --blue-soft:#8FA9CB;
+    --brass:#D2A868; --grey:#8B8D89;
+    --mono:'IBM Plex Mono', ui-monospace, monospace;
+    --sans:'IBM Plex Sans', system-ui, sans-serif;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{
+    background:var(--paper); color:var(--ink); font-family:var(--sans); line-height:1.6;
+    background-image:linear-gradient(var(--line-faint) 1px, transparent 1px), linear-gradient(90deg, var(--line-faint) 1px, transparent 1px);
+    background-size:40px 40px; background-position:-1px -1px;
+  }
+  a{color:inherit;}
+  :focus-visible{outline:2px solid var(--blue); outline-offset:3px;}
+  .wrap{max-width:900px; margin:0 auto; padding:0 28px;}
+
+  header.sheet-bar{
+    position:sticky; top:0; z-index:50; background:rgba(27,30,34,0.92); backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--line-mid);
+  }
+  .sheet-bar-inner{display:flex; align-items:center; justify-content:space-between; padding:14px 0; font-family:var(--mono); font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:var(--ink-soft);}
+  .mark{color:var(--blue); font-weight:600;}
+  nav{display:flex; gap:22px;}
+  nav a{text-decoration:none; color:var(--ink-soft); border-bottom:1px solid transparent; padding-bottom:2px;}
+  nav a:hover{color:var(--blue); border-color:var(--blue);}
+
+  main{padding:56px 0 100px;}
+
+  .title-block-area{padding:0 0 32px; border-bottom:1px solid var(--line-mid); margin-bottom:40px;}
+  .part-no{font-family:var(--mono); font-size:12px; color:var(--blue); display:block; margin-bottom:14px;}
+  h1{font-family:var(--mono); font-weight:700; font-size:clamp(28px,4vw,42px); text-transform:uppercase; line-height:1.1; margin-bottom:16px;}
+
+  .contact-line{
+    font-family:var(--mono); font-size:13px; color:var(--ink-soft);
+    display:flex; flex-wrap:wrap; gap:6px 14px; margin-bottom:24px;
+  }
+  .contact-line a{color:var(--blue-soft); text-decoration:none;}
+  .contact-line a:hover{color:var(--blue); text-decoration:underline;}
+  .contact-line span.sep{color:var(--line-mid);}
+
+  .btn-row{display:flex; gap:14px; flex-wrap:wrap;}
+  .btn{
+    display:inline-flex; align-items:center; gap:8px;
+    font-family:var(--mono); font-size:12px; letter-spacing:.08em; text-transform:uppercase;
+    text-decoration:none; padding:11px 18px; border:1px solid var(--ink); color:var(--ink);
+    background:transparent; transition:background .15s ease, color .15s ease;
+  }
+  .btn:hover{background:var(--ink); color:var(--paper);}
+  .btn.primary{background:var(--blue); border-color:var(--blue); color:#0F1113;}
+  .btn.primary:hover{background:var(--blue-soft); border-color:var(--blue-soft);}
+
+  section.rblock{padding:36px 0; border-bottom:1px solid var(--line-mid);}
+  section.rblock:last-of-type{border-bottom:none; padding-bottom:0;}
+  .section-head{display:flex; align-items:baseline; gap:16px; margin-bottom:22px;}
+  .section-num{font-family:var(--mono); font-size:12px; color:var(--blue);}
+  .section-title{font-family:var(--mono); font-weight:600; font-size:13px; letter-spacing:.1em; text-transform:uppercase; color:var(--ink);}
+  .section-rule{flex:1; height:1px; background:var(--line-mid);}
+
+  .entry{margin-bottom:22px;}
+  .entry:last-child{margin-bottom:0;}
+  .entry-head{
+    display:flex; justify-content:space-between; align-items:baseline; gap:16px;
+    flex-wrap:wrap; margin-bottom:2px;
+  }
+  .entry-title{font-family:var(--mono); font-weight:600; font-size:15px; color:var(--ink);}
+  .entry-date{font-family:var(--mono); font-size:11.5px; color:var(--grey); white-space:nowrap;}
+  .entry-sub{font-family:var(--mono); font-size:12.5px; color:var(--blue-soft); margin-bottom:10px;}
+  ul.entry-list{list-style:none; margin:0;}
+  ul.entry-list li{
+    position:relative; padding-left:16px; color:var(--ink-soft); font-size:14.5px; margin-bottom:6px;
+  }
+  ul.entry-list li:last-child{margin-bottom:0;}
+  ul.entry-list li::before{content:"—"; position:absolute; left:0; color:var(--grey);}
+
+  .skills-grid{display:grid; grid-template-columns:1fr 1fr; gap:20px 32px;}
+  @media (max-width:640px){.skills-grid{grid-template-columns:1fr;}}
+  .skill-row .k{font-family:var(--mono); font-size:11px; letter-spacing:.06em; text-transform:uppercase; color:var(--brass); display:block; margin-bottom:4px;}
+  .skill-row .v{color:var(--ink-soft); font-size:14.5px;}
+
+  footer{
+    padding:28px 0 40px; display:flex; justify-content:space-between;
+    font-family:var(--mono); font-size:11px; color:var(--grey); letter-spacing:.05em;
+  }
+</style>
+</head>
+<body>
+
+<header class="sheet-bar">
+  <div class="wrap sheet-bar-inner">
+    <div><span class="mark">JF</span> &nbsp;Portfolio</div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html">← Back to about</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <div class="title-block-area">
+    <span class="part-no">Résumé</span>
+    <h1>Joshua Fleegler</h1>
+    <div class="contact-line">
+      <span>Berkeley, CA</span>
+      <span class="sep">·</span>
+      <a href="mailto:joshfleegler@gmail.com">joshfleegler@gmail.com</a>
+      <span class="sep">·</span>
+      <span>617-999-4092</span>
+      <span class="sep">·</span>
+      <a href="https://www.linkedin.com/in/joshua-fleegler-689bb81b0/" target="_blank" rel="noopener">linkedin.com/in/joshua-fleegler</a>
+    </div>
+    <div class="btn-row">
+      <a class="btn primary" href="resume.pdf">Download PDF</a>
+      <a class="btn" href="mailto:joshfleegler@gmail.com">Email me</a>
+    </div>
+  </div>
+
+  <section class="rblock">
+    <div class="section-head">
+      <span class="section-num">01</span>
+      <span class="section-title">Education</span>
+      <span class="section-rule"></span>
+    </div>
+
+    <div class="entry">
+      <div class="entry-head">
+        <span class="entry-title">UC Berkeley</span>
+        <span class="entry-date">May 2027</span>
+      </div>
+      <div class="entry-sub">Master's of Engineering, Mechanical Engineering — Product Design concentration · Berkeley, CA</div>
+    </div>
+
+    <div class="entry">
+      <div class="entry-head">
+        <span class="entry-title">Tufts University</span>
+        <span class="entry-date">May 2026</span>
+      </div>
+      <div class="entry-sub">Bachelor's of Science, Mechanical Engineering — Magna Cum Laude, GPA 3.71 · Medford, MA</div>
+    </div>
+  </section>
+
+  <section class="rblock">
+    <div class="section-head">
+      <span class="section-num">02</span>
+      <span class="section-title">Experience</span>
+      <span class="section-rule"></span>
+    </div>
+
+    <div class="entry">
+      <div class="entry-head">
+        <span class="entry-title">Process Engineering Co-op — Entegris</span>
+        <span class="entry-date">January 2025 – June 2025</span>
+      </div>
+      <div class="entry-sub">Bedford, MA</div>
+      <ul class="entry-list">
+        <li>Engineered measurement fixtures using SolidWorks and fused deposition modeling printing, raising yield of metal filters used in semiconductor manufacturing from 50 percent to 100 percent</li>
+        <li>Collaborated with engineers and operators to iteratively optimize part designs for ergonomics and efficiency, delivering 5 to 25 iterations per project to balance comfort, function, and manufacturability</li>
+        <li>Designed a polishing fixture with external manufacturers, cutting one cycle step's time by 90 percent</li>
+        <li>Created geometric dimensioning and tolerancing drawings for production from external computer numerical control manufacturer and internal reference</li>
+      </ul>
+    </div>
+
+    <div class="entry">
+      <div class="entry-head">
+        <span class="entry-title">Course Assistant, Mechanics — Tufts University</span>
+        <span class="entry-date">September 2024 – May 2026</span>
+      </div>
+      <div class="entry-sub">Medford, MA</div>
+      <ul class="entry-list">
+        <li>Ran finite element analysis stress tests for labs, explained difficult concepts to students in office hours</li>
+        <li>Coordinated with three professors to grade over 100 homework assignments weekly</li>
+      </ul>
+    </div>
+
+    <div class="entry">
+      <div class="entry-head">
+        <span class="entry-title">Counselor and Ultimate Frisbee Coach — URJ Eisner Camp</span>
+        <span class="entry-date">Summers 2021 – 2024</span>
+      </div>
+      <div class="entry-sub">Great Barrington, MA</div>
+      <ul class="entry-list">
+        <li>Cornerstone Fellowship, one of five counselors selected to attend a national leadership seminar</li>
+        <li>Created reflective activities for over 600 campers and counselors in coordination with the director team</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="rblock">
+    <div class="section-head">
+      <span class="section-num">03</span>
+      <span class="section-title">Projects</span>
+      <span class="section-rule"></span>
+    </div>
+
+    <div class="entry">
+      <div class="entry-head">
+        <span class="entry-title">Automated Payload Feed System — Space Kinetic (Master's Capstone)</span>
+        <span class="entry-date">September 2026 – May 2027</span>
+      </div>
+      <ul class="entry-list">
+        <li>Designing automated reload mechanism for reusable satellite payload deployment system</li>
+        <li>Conducting engineering and failure mode analysis with the chief technology officer and engineering team</li>
+      </ul>
+    </div>
+
+    <div class="entry">
+      <div class="entry-head">
+        <span class="entry-title">Quadrupedal Walking Robot</span>
+        <span class="entry-date">January 2026 – May 2026</span>
+      </div>
+      <ul class="entry-list">
+        <li>Designed, 3D printed, and assembled a 4-legged walking robot in SolidWorks with 2 degrees of freedom per leg</li>
+        <li>Programmed a Raspberry Pi in Python to coordinate 8 motors, a motor controller, and an inertial measurement unit</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="rblock">
+    <div class="section-head">
+      <span class="section-num">04</span>
+      <span class="section-title">Research</span>
+      <span class="section-rule"></span>
+    </div>
+
+    <div class="entry">
+      <div class="entry-head">
+        <span class="entry-title">Lead Engineering Designer — FIRST STEP (FIRearm Secure sTorage ExPeriment)</span>
+        <span class="entry-date">September 2025 – Present</span>
+      </div>
+      <ul class="entry-list">
+        <li>Using SolidWorks and fused deposition modeling 3D printing to design and produce multiple inert full-size firearm models for a gun violence prevention study</li>
+        <li>Collaborating with academic, clinical, and end-user groups to achieve realistic weight and feel</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="rblock">
+    <div class="section-head">
+      <span class="section-num">05</span>
+      <span class="section-title">Skills</span>
+      <span class="section-rule"></span>
+    </div>
+
+    <div class="skills-grid">
+      <div class="skill-row">
+        <span class="k">Computer-Aided Design and Analysis</span>
+        <span class="v">SolidWorks, geometric dimensioning and tolerancing, finite element analysis</span>
+      </div>
+      <div class="skill-row">
+        <span class="k">Mechanical Design</span>
+        <span class="v">Multi-part assemblies, fixture design, design iteration and optimization</span>
+      </div>
+      <div class="skill-row">
+        <span class="k">Manufacturing</span>
+        <span class="v">Design for manufacturing, fused deposition modeling 3D printing, laser cutting, machine shop tools</span>
+      </div>
+      <div class="skill-row">
+        <span class="k">Software</span>
+        <span class="v">Python, MATLAB, SAP, product data management</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="rblock">
+    <div class="section-head">
+      <span class="section-num">06</span>
+      <span class="section-title">Activities and Leadership</span>
+      <span class="section-rule"></span>
+    </div>
+
+    <div class="entry">
+      <div class="entry-head">
+        <span class="entry-title">Club Ultimate Frisbee</span>
+        <span class="entry-date">2016 – Present</span>
+      </div>
+      <ul class="entry-list">
+        <li>Needham Public Schools, Tufts (leadership committee), UC Berkeley</li>
+      </ul>
+    </div>
+
+    <div class="entry">
+      <div class="entry-head">
+        <span class="entry-title">FIRST Robotics: FIRST Tech Challenge and FIRST Lego League — Project Manager and Hardware Lead</span>
+        <span class="entry-date">2014 – 2022</span>
+      </div>
+      <ul class="entry-list">
+        <li>Co-founded and led teams of 20 or more as project manager and hardware lead</li>
+      </ul>
+    </div>
+  </section>
+
+</main>
+
+<footer class="wrap">
+  <span>© 2026 Joshua Fleegler</span>
+  <span>Résumé · Rev A</span>
+</footer>
+
+</body>
+</html>
