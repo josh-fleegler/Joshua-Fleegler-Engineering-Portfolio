@@ -73,12 +73,12 @@
   nav.sheet-nav a:hover{color:var(--blue); border-color:var(--blue);}
 
   .hero{
-    padding:96px 0 60px;
+    padding:72px 0 42px;
     border-bottom:1px solid var(--line-mid);
   }
   .eyebrow{
     font-family:var(--mono);
-    font-size:12px;
+    font-size:14.5px;
     letter-spacing:.14em;
     text-transform:uppercase;
     color:var(--blue);
@@ -95,11 +95,45 @@
     line-height:1.02;
   }
 
-  .hero-row{
-    display:flex; align-items:center; justify-content:space-between;
-    gap:28px; margin-top:22px; flex-wrap:wrap;
+  .title-block{
+    margin-top:32px;
+    border:1px solid var(--ink);
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    background:var(--paper-raised);
+    width:100%;
   }
-  .role{font-size:17px; color:var(--ink-soft); max-width:52ch; flex:1 1 380px;}
+  .title-block .cell{
+    padding:10px 16px;
+    border-right:1px solid var(--line-mid);
+  }
+  .title-block .cell:last-child{border-right:none;}
+  .title-block .cell .k{
+    font-family:var(--mono);
+    font-size:10px;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    color:var(--grey);
+    display:block;
+    margin-bottom:4px;
+  }
+  .title-block .cell .v{
+    font-family:var(--mono);
+    font-size:13px;
+    color:var(--ink);
+  }
+
+  @media (max-width:640px){
+    .title-block{grid-template-columns:repeat(2,1fr);}
+    .title-block .cell{border-bottom:1px solid var(--line-mid);}
+    .title-block .cell:nth-child(2n){border-right:none;}
+    .title-block .cell:nth-last-child(-n+2){border-bottom:none;}
+  }
+
+  .hero-name-row{
+    display:flex; align-items:center; justify-content:flex-start;
+    gap:24px; flex-wrap:wrap;
+  }
 
   .about-btn{
     display:inline-flex; align-items:center; gap:8px;
@@ -113,7 +147,7 @@
   }
   .about-btn:hover{background:var(--blue); color:#0F1113;}
 
-  section.categories{padding:32px 0 64px;}
+  section.categories{padding:22px 0 64px;}
   .categories-grid{
     display:grid;
     grid-template-columns:repeat(3, 1fr);
@@ -123,7 +157,7 @@
     .categories-grid{grid-template-columns:1fr; gap:64px;}
   }
 
-  .category-col{display:flex; flex-direction:column; scroll-margin-top:100px;}
+  .category-col{display:flex; flex-direction:column;}
   .category-num{font-family:var(--mono); font-size:12px; color:var(--blue); display:block; margin-bottom:8px;}
   a.category-title{
     font-family:var(--mono); font-weight:700; font-size:clamp(19px, 2.1vw, 25px);
@@ -132,7 +166,6 @@
     display:block; margin-bottom:8px;
   }
   a.category-title:hover{color:var(--blue-soft);}
-  .category-sub{color:var(--ink-soft); font-size:13.5px; margin-bottom:16px;}
   .col-rule{height:1px; background:var(--line-mid); margin-bottom:22px;}
 
   .viewport{
@@ -188,10 +221,25 @@
 <section class="hero">
   <div class="wrap">
     <div class="eyebrow">Mechanical Design &amp; Manufacturing</div>
-    <h1 class="name">Joshua Fleegler</h1>
-    <div class="hero-row">
-      <p class="role">Hi, I'm Josh, a mechanical engineer who loves turning ideas into working hardware.</p>
+
+    <div class="hero-name-row">
+      <h1 class="name">Joshua Fleegler</h1>
       <a class="about-btn" href="about.html">About Me →</a>
+    </div>
+
+    <div class="title-block">
+      <div class="cell">
+        <span class="k">Discipline</span>
+        <span class="v">Mechanical Engineering</span>
+      </div>
+      <div class="cell">
+        <span class="k">Status</span>
+        <span class="v">Open to work</span>
+      </div>
+      <div class="cell">
+        <span class="k">Location</span>
+        <span class="v">Berkeley, CA (open to relocation)</span>
+      </div>
     </div>
   </div>
 </section>
@@ -200,10 +248,9 @@
   <div class="wrap">
     <div class="categories-grid">
 
-      <div class="category-col" id="group-projects">
+      <div class="category-col">
         <span class="category-num">01</span>
         <a class="category-title" href="projects/toothless.html">Group Projects</a>
-        <p class="category-sub">One of several hands-on builds from coursework and team projects.</p>
         <div class="col-rule"></div>
 
         <a class="viewport" href="projects/toothless.html">
@@ -217,10 +264,9 @@
         <p class="col-desc">A 3D-printed, servo-driven quadruped walking robot modeled after Toothless from How to Train Your Dragon.</p>
       </div>
 
-      <div class="category-col" id="professional-work">
+      <div class="category-col">
         <span class="category-num">02</span>
         <a class="category-title" href="projects/measurement-fixture.html">Professional Work</a>
-        <p class="category-sub">A sample from ongoing professional and industry projects.</p>
         <div class="col-rule"></div>
 
         <a class="viewport contain-fit" href="projects/measurement-fixture.html">
@@ -234,10 +280,9 @@
         <p class="col-desc">A fixture designed to hold tight-tolerance parts steady for repeatable micrometer measurement.</p>
       </div>
 
-      <div class="category-col" id="research">
+      <div class="category-col">
         <span class="category-num">03</span>
         <a class="category-title" href="projects/firearm-safety.html">Research</a>
-        <p class="category-sub">One project from ongoing research work.</p>
         <div class="col-rule"></div>
 
         <a class="viewport" href="projects/firearm-safety.html">
