@@ -99,7 +99,7 @@
     margin-top:32px;
     border:1px solid var(--ink);
     display:grid;
-    grid-template-columns:repeat(3, 1fr);
+    grid-template-columns:auto auto 1fr;
     background:var(--paper-raised);
     width:100%;
   }
@@ -108,6 +108,12 @@
     border-right:1px solid var(--line-mid);
   }
   .title-block .cell:last-child{border-right:none;}
+  .title-block .cell.edu{
+    grid-column:1 / -1;
+    border-right:none;
+    border-top:1px solid var(--line-mid);
+  }
+  .title-block .cell.edu .when{color:var(--grey);}
   .title-block .cell .k{
     font-family:var(--mono);
     font-size:10px;
@@ -128,6 +134,7 @@
     .title-block .cell{border-bottom:1px solid var(--line-mid);}
     .title-block .cell:nth-child(2n){border-right:none;}
     .title-block .cell:nth-last-child(-n+2){border-bottom:none;}
+    .title-block .cell:nth-child(3){grid-column:1 / -1; border-right:none;}
   }
 
   .hero-name-row{
@@ -235,11 +242,15 @@
       </div>
       <div class="cell">
         <span class="k">Status</span>
-        <span class="v">Open to work</span>
+        <span class="v">Open to work starting June 2027</span>
       </div>
       <div class="cell">
         <span class="k">Location</span>
         <span class="v">Berkeley, CA (open to relocation)</span>
+      </div>
+      <div class="cell edu">
+        <span class="k">Education</span>
+        <span class="v">Master of Engineering, UC Berkeley <span class="when">(May 2027)</span> · B.S. in Mechanical Engineering, Tufts University <span class="when">(May 2026)</span></span>
       </div>
     </div>
   </div>
