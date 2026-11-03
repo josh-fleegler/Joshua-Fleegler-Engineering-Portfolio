@@ -98,22 +98,17 @@
   .title-block{
     margin-top:32px;
     border:1px solid var(--ink);
-    display:grid;
-    grid-template-columns:auto auto 1fr;
-    background:var(--paper-raised);
+    background:var(--line-mid);
+    display:flex; flex-direction:column; gap:1px;
     width:100%;
   }
+  .title-block .row{display:flex; flex-wrap:wrap; gap:1px;}
   .title-block .cell{
+    flex:1 1 auto;
     padding:10px 16px;
-    border-right:1px solid var(--line-mid);
+    background:var(--paper-raised);
   }
-  .title-block .cell:last-child{border-right:none;}
-  .title-block .cell.edu{
-    grid-column:1 / -1;
-    border-right:none;
-    border-top:1px solid var(--line-mid);
-  }
-  .title-block .cell.edu .when{color:var(--grey);}
+  .title-block .cell .when{color:var(--grey);}
   .title-block .cell .k{
     font-family:var(--mono);
     font-size:10px;
@@ -127,14 +122,6 @@
     font-family:var(--mono);
     font-size:13px;
     color:var(--ink);
-  }
-
-  @media (max-width:640px){
-    .title-block{grid-template-columns:repeat(2,1fr);}
-    .title-block .cell{border-bottom:1px solid var(--line-mid);}
-    .title-block .cell:nth-child(2n){border-right:none;}
-    .title-block .cell:nth-last-child(-n+2){border-bottom:none;}
-    .title-block .cell:nth-child(3){grid-column:1 / -1; border-right:none;}
   }
 
   .hero-name-row{
@@ -236,21 +223,29 @@
     </div>
 
     <div class="title-block">
-      <div class="cell">
-        <span class="k">Discipline</span>
-        <span class="v">Mechanical Engineering</span>
+      <div class="row">
+        <div class="cell">
+          <span class="k">Discipline</span>
+          <span class="v">Mechanical Engineering</span>
+        </div>
+        <div class="cell">
+          <span class="k">Status</span>
+          <span class="v">Open to work starting June 2027</span>
+        </div>
+        <div class="cell">
+          <span class="k">Location</span>
+          <span class="v">Berkeley, CA (open to relocation)</span>
+        </div>
       </div>
-      <div class="cell">
-        <span class="k">Status</span>
-        <span class="v">Open to work starting June 2027</span>
-      </div>
-      <div class="cell">
-        <span class="k">Location</span>
-        <span class="v">Berkeley, CA (open to relocation)</span>
-      </div>
-      <div class="cell edu">
-        <span class="k">Education</span>
-        <span class="v">Master of Engineering, UC Berkeley <span class="when">(May 2027)</span> · B.S. in Mechanical Engineering, Tufts University <span class="when">(May 2026)</span></span>
+      <div class="row">
+        <div class="cell">
+          <span class="k">Graduate</span>
+          <span class="v">Master of Engineering in Mechanical Engineering (Product Design), UC Berkeley <span class="when">(May 2027)</span></span>
+        </div>
+        <div class="cell">
+          <span class="k">Undergraduate</span>
+          <span class="v">B.S. in Mechanical Engineering, Tufts University <span class="when">(May 2026)</span></span>
+        </div>
       </div>
     </div>
   </div>
