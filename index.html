@@ -44,7 +44,7 @@
   a{color:inherit;}
   :focus-visible{outline:2px solid var(--blue); outline-offset:3px;}
 
-  .wrap{max-width:1200px; margin:0 auto; padding:0 28px;}
+  .wrap{max-width:1320px; margin:0 auto; padding:0 28px;}
 
   header.sheet-bar{
     position:sticky; top:0; z-index:50;
@@ -151,7 +151,7 @@
   .categories-grid{
     display:grid;
     grid-template-columns:repeat(3, 1fr);
-    gap:44px;
+    gap:28px;
   }
   @media (max-width:860px){
     .categories-grid{grid-template-columns:1fr; gap:64px;}
@@ -179,8 +179,9 @@
   .viewport img{
     width:100%; height:100%; object-fit:cover; display:block;
   }
+  .viewport.contain-fit{background:#FFFFFF;}
   .viewport.contain-fit img{
-    object-fit:contain; padding:14px;
+    object-fit:contain; padding:0;
   }
   .crop{position:absolute; width:14px; height:14px; border:1px solid var(--ink); opacity:.55;}
   .crop.tl{top:9px; left:9px; border-right:none; border-bottom:none;}
@@ -250,23 +251,7 @@
 
       <div class="category-col">
         <span class="category-num">01</span>
-        <a class="category-title" href="projects/toothless.html">Group Projects</a>
-        <div class="col-rule"></div>
-
-        <a class="viewport" href="projects/toothless.html">
-          <img src="assets/toothless.jpg" alt="Toothless-inspired quadruped walking robot with 3D-printed dragon head and articulated legs">
-          <span class="crop tl"></span><span class="crop tr"></span>
-          <span class="crop bl"></span><span class="crop br"></span>
-        </a>
-
-        <span class="part-no">No. 001</span>
-        <h3 class="col-title">Walking Toothless Dragon</h3>
-        <p class="col-desc">A 3D-printed, servo-driven quadruped walking robot modeled after Toothless from How to Train Your Dragon.</p>
-      </div>
-
-      <div class="category-col">
-        <span class="category-num">02</span>
-        <a class="category-title" href="projects/measurement-fixture.html">Professional Work</a>
+        <a class="category-title" href="professional.html">Professional Work</a>
         <div class="col-rule"></div>
 
         <a class="viewport contain-fit" href="projects/measurement-fixture.html">
@@ -275,9 +260,25 @@
           <span class="crop bl"></span><span class="crop br"></span>
         </a>
 
-        <span class="part-no">No. 002</span>
+        <span class="part-no">No. 001</span>
         <h3 class="col-title">High-Precision Measurement Fixture</h3>
         <p class="col-desc">A fixture designed to hold tight-tolerance parts steady for repeatable micrometer measurement.</p>
+      </div>
+
+      <div class="category-col">
+        <span class="category-num">02</span>
+        <a class="category-title" href="personal.html">Personal Projects</a>
+        <div class="col-rule"></div>
+
+        <a class="viewport" href="projects/toothless.html">
+          <img src="assets/toothless.jpg" alt="Toothless-inspired quadruped walking robot with 3D-printed dragon head and articulated legs">
+          <span class="crop tl"></span><span class="crop tr"></span>
+          <span class="crop bl"></span><span class="crop br"></span>
+        </a>
+
+        <span class="part-no">No. 002</span>
+        <h3 class="col-title">Walking Toothless Dragon</h3>
+        <p class="col-desc">A 3D-printed, servo-driven quadruped walking robot modeled after Toothless from How to Train Your Dragon.</p>
       </div>
 
       <div class="category-col">
@@ -286,7 +287,7 @@
         <div class="col-rule"></div>
 
         <a class="viewport" href="projects/firearm-safety.html">
-          <img src="assets/research/models-with-different-mechanisms/both-models-with-safety-mechanisms.jpeg" alt="Two 3D-printed inert firearm models fitted with different safety lock mechanisms">
+          <img src="assets/research/web/models-with-different-mechanisms/barrel-lock-on-model.jpeg" alt="3D-printed inert firearm model with a barrel lock inserted">
           <span class="crop tl"></span><span class="crop tr"></span>
           <span class="crop bl"></span><span class="crop br"></span>
         </a>

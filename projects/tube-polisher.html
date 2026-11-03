@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tube Polisher Fixture — Joshua Fleegler</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#1B1E22; --paper-raised:#232629; --line-faint:#2C2F33; --line-mid:#3A3D42;
+    --ink:#EDEEE9; --ink-soft:#B7B9B4; --blue:#6E93C7; --blue-soft:#8FA9CB;
+    --brass:#D2A868; --grey:#8B8D89;
+    --mono:'IBM Plex Mono', ui-monospace, monospace;
+    --sans:'IBM Plex Sans', system-ui, sans-serif;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--paper); color:var(--ink); font-family:var(--sans); line-height:1.65; font-size:16px;
+    background-image:linear-gradient(var(--line-faint) 1px, transparent 1px), linear-gradient(90deg, var(--line-faint) 1px, transparent 1px);
+    background-size:40px 40px; background-position:-1px -1px;
+  }
+  a{color:inherit;}
+  :focus-visible{outline:2px solid var(--blue); outline-offset:3px;}
+  .wrap{max-width:980px; margin:0 auto; padding:0 28px;}
+
+  header.sheet-bar{
+    position:sticky; top:0; z-index:50; background:rgba(27,30,34,0.92); backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--line-mid);
+  }
+  .sheet-bar-inner{display:flex; align-items:center; justify-content:space-between; padding:14px 0; font-family:var(--mono); font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:var(--ink-soft);}
+  .mark{color:var(--blue); font-weight:600;}
+  nav a{text-decoration:none; color:var(--ink-soft); border-bottom:1px solid transparent; padding-bottom:2px;}
+  nav a:hover{color:var(--blue); border-color:var(--blue);}
+  nav.sheet-nav{display:flex; align-items:center; gap:14px;}
+  .nav-btn{
+    display:inline-flex; align-items:center;
+    font-family:var(--mono); font-weight:600; font-size:12.5px;
+    letter-spacing:.06em; text-transform:uppercase;
+    padding:8px 16px;
+    border:1px solid var(--line-mid); color:var(--ink-soft);
+    text-decoration:none;
+    transition:background .15s ease, color .15s ease, border-color .15s ease;
+  }
+  .nav-btn:hover{background:var(--blue); color:#0F1113; border-color:var(--blue);}
+  .nav-btn.primary{border-color:var(--blue); color:var(--blue);}
+  .nav-btn.primary:hover{background:var(--blue); color:#0F1113;}
+
+  main{padding:0 0 100px;}
+  .title-block-area{padding:44px 0 32px; border-bottom:1px solid var(--line-mid); margin-bottom:32px;}
+  .part-no{font-family:var(--mono); font-size:12px; color:var(--blue); display:block; margin-bottom:14px;}
+  .category-tag{font-family:var(--mono); font-size:12px; letter-spacing:.08em; text-transform:uppercase; color:var(--ink-soft); margin-bottom:18px; display:block;}
+  h1{font-family:var(--mono); font-weight:700; font-size:clamp(30px,4.4vw,46px); text-transform:uppercase; line-height:1.1; margin-bottom:14px;}
+  .byline{color:var(--ink-soft); font-size:15px; margin-bottom:26px;}
+
+  .goal-box{
+    border:1px solid var(--brass); background:var(--paper-raised);
+    padding:20px 24px; max-width:70ch;
+  }
+  .goal-box .k{font-family:var(--mono); font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:var(--brass); display:block; margin-bottom:8px;}
+  .goal-box p{color:var(--ink); font-size:15.5px; font-weight:500;}
+
+  .spec-table{display:grid; grid-template-columns:repeat(2,1fr); border:1px solid var(--line-mid); background:var(--paper-raised); margin-top:22px; max-width:70ch;}
+  .spec-table div{padding:14px 18px; border-right:1px solid var(--line-mid);}
+  .spec-table div:last-child{border-right:none;}
+  .spec-table .k{font-family:var(--mono); font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:var(--grey); display:block; margin-bottom:4px;}
+  .spec-table .v{font-family:var(--mono); font-weight:600; font-size:20px; color:var(--blue);}
+  @media (max-width:600px){
+    .spec-table{grid-template-columns:1fr;}
+    .spec-table div{border-right:none; border-bottom:1px solid var(--line-mid);}
+    .spec-table div:last-child{border-bottom:none;}
+  }
+
+  section.log{padding:0 0 36px; border-bottom:1px solid var(--line-mid); margin-bottom:36px;}
+  section.log:last-of-type{border-bottom:none;}
+  .log-num{font-family:var(--mono); font-size:12px; color:var(--blue); display:block; margin-bottom:10px;}
+  h2{font-family:var(--mono); font-weight:600; font-size:20px; text-transform:uppercase; letter-spacing:.01em; margin-bottom:22px;}
+
+  .log-row{display:grid; grid-template-columns:1fr 1fr; gap:32px; align-items:center; margin-bottom:22px;}
+  @media (max-width:760px){.log-row{grid-template-columns:1fr; align-items:start;}}
+  .log-row p{color:var(--ink-soft); font-size:15.5px;}
+
+  p.body-text{color:var(--ink-soft); font-size:15.5px; max-width:72ch; margin-bottom:16px;}
+
+  .log-media{border:1px solid var(--line-mid); background:var(--paper-raised); overflow:hidden;}
+  .log-media img{width:100%; display:block;}
+  .caption{font-family:var(--mono); font-size:11.5px; color:var(--grey); margin-top:8px; letter-spacing:.02em;}
+
+  .diagram-frame{border:1px solid var(--line-mid); background:#2E323A; padding:4px; margin-bottom:8px;}
+  .diagram-frame img{width:100%; display:block;}
+
+  .req-table{width:100%; border-collapse:collapse; border:1px solid var(--line-mid); background:var(--paper-raised); margin-bottom:8px; font-size:15px;}
+  .req-table th{font-family:var(--mono); font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:var(--grey); font-weight:500; text-align:left; padding:10px 16px; border-bottom:1px solid var(--line-mid);}
+  .req-table td{padding:12px 16px; border-bottom:1px solid var(--line-faint); vertical-align:top; color:var(--ink-soft);}
+  .req-table tr:last-child td{border-bottom:none;}
+  .req-table td:first-child{color:var(--ink); font-weight:500; width:42%;}
+  @media (max-width:600px){ .req-table td, .req-table th{display:block; width:100% !important;} .req-table td:first-child{padding-bottom:2px; border-bottom:none;} .req-table th:last-child{display:none;} }
+  ul.spec-list{list-style:none; max-width:72ch; margin-bottom:16px;}
+  ul.spec-list li{color:var(--ink-soft); font-size:15.5px; padding:8px 0 8px 18px; border-bottom:1px solid var(--line-faint); position:relative;}
+  ul.spec-list li:last-child{border-bottom:none;}
+  ul.spec-list li::before{content:""; position:absolute; left:0; top:17px; width:7px; height:7px; border:1px solid var(--blue);}
+  ul.spec-list b{color:var(--ink); font-weight:500;}
+
+  footer{
+    padding:28px 0 40px;
+    display:flex; justify-content:space-between;
+    font-family:var(--mono); font-size:11px; color:var(--grey); letter-spacing:.05em;
+  }
+
+  @media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto;} }
+</style>
+</head>
+<body>
+
+<header class="sheet-bar">
+  <div class="wrap sheet-bar-inner">
+    <div><span class="mark">JF</span> &nbsp;Portfolio</div>
+    <nav class="sheet-nav">
+      <a class="nav-btn primary" href="../index.html">← Back to projects</a>
+      <a class="nav-btn" href="../professional.html">View all Professional Work →</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <div class="title-block-area">
+    <span class="part-no">No. 004</span>
+    <span class="category-tag">Professional / Industry Work</span>
+    <h1>Tube Polisher Fixture</h1>
+    <p class="byline">Process Engineering Co-op at Entegris, January to June 2025</p>
+
+    <div class="goal-box">
+      <span class="k">Overview</span>
+      <p>A fixture that holds nickel tubes exactly 2mm from a grinder-polisher while keeping the operator's hands guarded. It replaced hand filing and took that step from 1 to 2 minutes per tube down to a few seconds.</p>
+    </div>
+
+    <div class="spec-table">
+      <div><span class="k">Time per tube</span><span class="v">3 to 5 s</span></div>
+      <div><span class="k">Before (hand filing)</span><span class="v">1 to 2 min</span></div>
+    </div>
+  </div>
+
+  <section class="log">
+    <span class="log-num">01</span>
+    <h2>The Problem</h2>
+    <p class="body-text">Operators smoothed the ends of nickel tubes by hand with files. Each tube took 1 to 2 minutes, results varied from person to person, and the constant filing caused hand strain. A grinder-polisher could do the job much faster, but without a fixture it put the operator's hands at risk.</p>
+  </section>
+
+  <section class="log">
+    <span class="log-num">02</span>
+    <h2>Requirements</h2>
+    <ul class="spec-list">
+      <li><b>Exact gap.</b> Keep each tube end 2mm off the polishing surface, every time.</li>
+      <li><b>Guarded hands.</b> The operator's hands stay fully protected from the polisher.</li>
+      <li><b>No scratches.</b> The nickel tubes are soft, so nothing hard can touch them.</li>
+      <li><b>Quick loading.</b> Tubes go in and out by hand without tools.</li>
+    </ul>
+  </section>
+
+  <section class="log">
+    <span class="log-num">03</span>
+    <h2>Version 1: Failed</h2>
+    <p class="body-text">The first fixture was machined and used the polisher's base as its reference surface. When it arrived, the 2mm gap could not be held. The base looked flat but had a 2&deg; tilt that had not been caught, which threw the whole fixture out of position.</p>
+  </section>
+
+  <section class="log">
+    <span class="log-num">04</span>
+    <h2>Version 2: New Reference Surface</h2>
+    <ul class="spec-list">
+      <li><b>Datum moved.</b> The redesign aligns off the machine's upper surface instead of the base, so the 2mm gap no longer depends on the base at all.</li>
+      <li><b>Polyurethane inserts.</b> Molded inserts sized for each tube protect the soft nickel from scratches.</li>
+      <li><b>Tuned fit.</b> The inserts grip the tube firmly but still load easily by hand.</li>
+    </ul>
+  </section>
+
+  <section class="log" style="border-bottom:none; margin-bottom:0; padding-bottom:0;">
+    <span class="log-num">05</span>
+    <h2>Results</h2>
+    <p class="body-text">Each tube now takes 3 to 5 seconds instead of 1 to 2 minutes, more than 90% faster, with more consistent results and no hand filing.</p>
+    <p class="body-text">The lesson I took from version 1: measure the surfaces a part will mate with before releasing it for machining, not after it arrives.</p>
+  </section>
+
+</main>
+
+<footer class="wrap">
+  <span>&copy; 2026 Joshua Fleegler</span>
+  <span>No. 004 &middot; Tube Polisher Fixture</span>
+</footer>
+
+</body>
+</html>

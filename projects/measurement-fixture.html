@@ -16,14 +16,16 @@
     --sans:'IBM Plex Sans', system-ui, sans-serif;
   }
   *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
   body{
-    background:var(--paper); color:var(--ink); font-family:var(--sans); line-height:1.6;
+    background:var(--paper); color:var(--ink); font-family:var(--sans); line-height:1.65; font-size:16px;
     background-image:linear-gradient(var(--line-faint) 1px, transparent 1px), linear-gradient(90deg, var(--line-faint) 1px, transparent 1px);
     background-size:40px 40px; background-position:-1px -1px;
   }
   a{color:inherit;}
   :focus-visible{outline:2px solid var(--blue); outline-offset:3px;}
-  .wrap{max-width:900px; margin:0 auto; padding:0 28px;}
+  .wrap{max-width:980px; margin:0 auto; padding:0 28px;}
+
   header.sheet-bar{
     position:sticky; top:0; z-index:50; background:rgba(27,30,34,0.92); backdrop-filter:blur(6px);
     border-bottom:1px solid var(--line-mid);
@@ -46,19 +48,68 @@
   .nav-btn.primary{border-color:var(--blue); color:var(--blue);}
   .nav-btn.primary:hover{background:var(--blue); color:#0F1113;}
 
-  main{padding:64px 0 100px;}
+  main{padding:0 0 100px;}
+  .title-block-area{padding:44px 0 32px; border-bottom:1px solid var(--line-mid); margin-bottom:32px;}
   .part-no{font-family:var(--mono); font-size:12px; color:var(--blue); display:block; margin-bottom:14px;}
-  h1{font-family:var(--mono); font-weight:700; font-size:clamp(28px,4vw,42px); text-transform:uppercase; line-height:1.1; margin-bottom:10px;}
-  .category-tag{font-family:var(--mono); font-size:12px; letter-spacing:.08em; text-transform:uppercase; color:var(--ink-soft); margin-bottom:36px; display:block;}
+  .category-tag{font-family:var(--mono); font-size:12px; letter-spacing:.08em; text-transform:uppercase; color:var(--ink-soft); margin-bottom:18px; display:block;}
+  h1{font-family:var(--mono); font-weight:700; font-size:clamp(30px,4.4vw,46px); text-transform:uppercase; line-height:1.1; margin-bottom:14px;}
+  .byline{color:var(--ink-soft); font-size:15px; margin-bottom:26px;}
 
-  .hero-image{border:1px solid var(--line-mid); background:var(--paper-raised); margin-bottom:36px; overflow:hidden;}
-  .hero-image img{width:100%; display:block;}
-
-  p.lead{font-size:17px; color:var(--ink-soft); max-width:60ch; margin-bottom:20px;}
-  .coming-soon{
-    margin-top:36px; padding:16px 20px; border:1px dashed var(--line-mid);
-    font-family:var(--mono); font-size:12px; letter-spacing:.05em; text-transform:uppercase; color:var(--grey);
+  .goal-box{
+    border:1px solid var(--brass); background:var(--paper-raised);
+    padding:20px 24px; max-width:70ch;
   }
+  .goal-box .k{font-family:var(--mono); font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:var(--brass); display:block; margin-bottom:8px;}
+  .goal-box p{color:var(--ink); font-size:15.5px; font-weight:500;}
+
+  .spec-table{display:grid; grid-template-columns:repeat(2,1fr); border:1px solid var(--line-mid); background:var(--paper-raised); margin-top:22px; max-width:70ch;}
+  .spec-table div{padding:14px 18px; border-right:1px solid var(--line-mid);}
+  .spec-table div:last-child{border-right:none;}
+  .spec-table .k{font-family:var(--mono); font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:var(--grey); display:block; margin-bottom:4px;}
+  .spec-table .v{font-family:var(--mono); font-weight:600; font-size:20px; color:var(--blue);}
+  @media (max-width:600px){
+    .spec-table{grid-template-columns:1fr;}
+    .spec-table div{border-right:none; border-bottom:1px solid var(--line-mid);}
+    .spec-table div:last-child{border-bottom:none;}
+  }
+
+  section.log{padding:0 0 36px; border-bottom:1px solid var(--line-mid); margin-bottom:36px;}
+  section.log:last-of-type{border-bottom:none;}
+  .log-num{font-family:var(--mono); font-size:12px; color:var(--blue); display:block; margin-bottom:10px;}
+  h2{font-family:var(--mono); font-weight:600; font-size:20px; text-transform:uppercase; letter-spacing:.01em; margin-bottom:22px;}
+
+  .log-row{display:grid; grid-template-columns:1fr 1fr; gap:32px; align-items:center; margin-bottom:22px;}
+  @media (max-width:760px){.log-row{grid-template-columns:1fr; align-items:start;}}
+  .log-row p{color:var(--ink-soft); font-size:15.5px;}
+
+  p.body-text{color:var(--ink-soft); font-size:15.5px; max-width:72ch; margin-bottom:16px;}
+
+  .log-media{border:1px solid var(--line-mid); background:var(--paper-raised); overflow:hidden;}
+  .log-media img{width:100%; display:block;}
+  .caption{font-family:var(--mono); font-size:11.5px; color:var(--grey); margin-top:8px; letter-spacing:.02em;}
+
+  .diagram-frame{border:1px solid var(--line-mid); background:#2E323A; padding:4px; margin-bottom:8px;}
+  .diagram-frame img{width:100%; display:block;}
+
+  .req-table{width:100%; border-collapse:collapse; border:1px solid var(--line-mid); background:var(--paper-raised); margin-bottom:8px; font-size:15px;}
+  .req-table th{font-family:var(--mono); font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:var(--grey); font-weight:500; text-align:left; padding:10px 16px; border-bottom:1px solid var(--line-mid);}
+  .req-table td{padding:12px 16px; border-bottom:1px solid var(--line-faint); vertical-align:top; color:var(--ink-soft);}
+  .req-table tr:last-child td{border-bottom:none;}
+  .req-table td:first-child{color:var(--ink); font-weight:500; width:42%;}
+  @media (max-width:600px){ .req-table td, .req-table th{display:block; width:100% !important;} .req-table td:first-child{padding-bottom:2px; border-bottom:none;} .req-table th:last-child{display:none;} }
+  ul.spec-list{list-style:none; max-width:72ch; margin-bottom:16px;}
+  ul.spec-list li{color:var(--ink-soft); font-size:15.5px; padding:8px 0 8px 18px; border-bottom:1px solid var(--line-faint); position:relative;}
+  ul.spec-list li:last-child{border-bottom:none;}
+  ul.spec-list li::before{content:""; position:absolute; left:0; top:17px; width:7px; height:7px; border:1px solid var(--blue);}
+  ul.spec-list b{color:var(--ink); font-weight:500;}
+
+  footer{
+    padding:28px 0 40px;
+    display:flex; justify-content:space-between;
+    font-family:var(--mono); font-size:11px; color:var(--grey); letter-spacing:.05em;
+  }
+
+  @media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto;} }
 </style>
 </head>
 <body>
@@ -68,24 +119,86 @@
     <div><span class="mark">JF</span> &nbsp;Portfolio</div>
     <nav class="sheet-nav">
       <a class="nav-btn primary" href="../index.html">← Back to projects</a>
-      <a class="nav-btn" href="../index.html#professional-work">View all Professional Work →</a>
+      <a class="nav-btn" href="../professional.html">View all Professional Work →</a>
     </nav>
   </div>
 </header>
 
 <main class="wrap">
-  <span class="part-no">No. 002</span>
-  <span class="category-tag">Professional / Industry Work</span>
-  <h1>High-Precision Measurement Fixture</h1>
 
-  <div class="hero-image">
-    <img src="../assets/measurement-fixture.png" alt="CAD render of a high-precision measurement fixture">
+  <div class="title-block-area">
+    <span class="part-no">No. 001</span>
+    <span class="category-tag">Professional / Industry Work</span>
+    <h1>High-Precision Measurement Fixture</h1>
+    <p class="byline">Process Engineering Co-op at Entegris, January to June 2025</p>
+
+    <div class="goal-box">
+      <span class="k">Overview</span>
+      <p>A handheld fixture for micrometer and caliper inspection of rectangular nickel alloy plates. I designed it in SolidWorks, printed it with fused deposition modeling, and refined it over more than 20 versions with the operator who uses it.</p>
+    </div>
+
+    <div class="spec-table">
+      <div><span class="k">Plate evaluation time</span><span class="v">Over 40% faster</span></div>
+      <div><span class="k">Versions tested</span><span class="v">20+</span></div>
+    </div>
   </div>
 
-  <p class="lead">A fixture designed to hold tight-tolerance parts steady for repeatable micrometer measurement.</p>
+  <section class="log">
+    <span class="log-num">01</span>
+    <h2>Requirements</h2>
+    <div class="log-row">
+      <div>
+        <div class="log-media"><img src="../assets/professional/rectangular filter.png" alt="Photo of one of the rectangular nickel alloy plates"></div>
+        <p class="caption">Rectangular nickel alloy plate, roughly the size of a TV remote.</p>
+      </div>
+      <div>
+        <p>Every plate is checked with micrometers and calipers before it moves on. There was no existing fixture for this part, so the design started from a blank sketch and a list of constraints.</p>
+      </div>
+    </div>
+    <table class="req-table">
+      <tr><th>Requirement</th><th>Reason</th></tr>
+      <tr><td>Hold the plate rigidly during measurement</td><td>Any movement shows up directly as measurement error.</td></tr>
+      <tr><td>No hard contact with the plate surface</td><td>The nickel alloy scratches easily, and a scratched plate fails inspection.</td></tr>
+      <tr><td>Caliper access at every measurement location</td><td>The operator takes several readings per plate without removing it.</td></tr>
+      <tr><td>Comfortable to hold</td><td>Operators pick it up for every plate, many times an hour.</td></tr>
+      <tr><td>Quick and cheap to make</td><td>Printing made each new version cheap and fast to test on the line.</td></tr>
+    </table>
+  </section>
 
-  <div class="coming-soon">Full write-up coming soon</div>
+  <section class="log">
+    <span class="log-num">02</span>
+    <h2>Design Decisions</h2>
+    <div class="diagram-frame"><img src="../assets/measurement-fixture.png" alt="CAD render of the measurement fixture, shown as an exploded view of its upper and lower plates"></div>
+    <p class="caption">Exploded view of the fixture in SolidWorks.</p>
+    <ul class="spec-list" style="margin-top:20px;">
+      <li><b>Magnetic retention.</b> Magnets hold the plate in place, and every magnet and screw is positioned so no fastener can touch the plate surface.</li>
+      <li><b>Caliper gaps.</b> Openings are sized for the caliper jaws at each measurement location, so every reading can be taken with the plate seated.</li>
+      <li><b>Rear cutout.</b> Gives the caliper a flat surface to rest against, which keeps it square to the plate and makes readings repeatable.</li>
+      <li><b>Relief divot.</b> Clears the body of the digital caliper so it never bumps the fixture mid-measurement.</li>
+      <li><b>1mm locating lip.</b> Added early on at the operator's suggestion. It noticeably improved how stable the plate sits in the fixture.</li>
+    </ul>
+  </section>
+
+  <section class="log">
+    <span class="log-num">03</span>
+    <h2>Testing and Iteration</h2>
+    <p class="body-text">I planned for a handful of prototypes. It took more than 20 printed versions over several weeks. Each version went straight to the operator, who used it on real parts and told me where it was slow, uncomfortable, or let the plate shift. Most changes were to the grip and to caliper clearance.</p>
+    <p class="body-text">Working this closely with the end user was the biggest factor in the final design. Several features, including the locating lip, came from her feedback rather than from the CAD model.</p>
+  </section>
+
+  <section class="log" style="border-bottom:none; margin-bottom:0; padding-bottom:0;">
+    <span class="log-num">04</span>
+    <h2>Results</h2>
+    <p class="body-text">With the final fixture in use, plate evaluation time fell by over 40%.</p>
+  </section>
+
+
 </main>
+
+<footer class="wrap">
+  <span>© 2026 Joshua Fleegler</span>
+  <span>No. 001 · Measurement Fixture</span>
+</footer>
 
 </body>
 </html>

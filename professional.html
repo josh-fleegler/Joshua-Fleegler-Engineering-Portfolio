@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Professional Work — Joshua Fleegler</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#1B1E22;
+    --paper-raised:#232629;
+    --line-faint:#2C2F33;
+    --line-mid:#3A3D42;
+    --ink:#EDEEE9;
+    --ink-soft:#B7B9B4;
+    --blue:#6E93C7;
+    --blue-soft:#8FA9CB;
+    --brass:#D2A868;
+    --orange:#E2703C;
+    --grey:#8B8D89;
+
+    --mono:'IBM Plex Mono', ui-monospace, monospace;
+    --sans:'IBM Plex Sans', system-ui, sans-serif;
+  }
+
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:var(--sans);
+    font-size:16px;
+    line-height:1.5;
+    background-image:
+      linear-gradient(var(--line-faint) 1px, transparent 1px),
+      linear-gradient(90deg, var(--line-faint) 1px, transparent 1px);
+    background-size:40px 40px;
+    background-position:-1px -1px;
+  }
+
+  a{color:inherit;}
+  :focus-visible{outline:2px solid var(--blue); outline-offset:3px;}
+
+  .wrap{max-width:1320px; margin:0 auto; padding:0 28px;}
+
+  header.sheet-bar{
+    position:sticky; top:0; z-index:50;
+    background:rgba(27,30,34,0.92);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--line-mid);
+  }
+  .sheet-bar-inner{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:14px 0;
+    font-family:var(--mono);
+    font-size:11px;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+  }
+  .sheet-bar-left{display:flex; gap:22px; align-items:center;}
+  .sheet-bar-left .mark{color:var(--blue); font-weight:600;}
+  nav.sheet-nav{display:flex; gap:26px;}
+  nav.sheet-nav a{
+    text-decoration:none; color:var(--ink-soft);
+    border-bottom:1px solid transparent;
+    padding-bottom:2px;
+    transition:color .15s, border-color .15s;
+  }
+  nav.sheet-nav a:hover{color:var(--blue); border-color:var(--blue);}
+
+  .hero{
+    padding:72px 0 42px;
+    border-bottom:1px solid var(--line-mid);
+  }
+  .eyebrow{
+    font-family:var(--mono);
+    font-size:14.5px;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--blue);
+    display:flex; align-items:center; gap:10px;
+    margin-bottom:22px;
+  }
+  .eyebrow::before{content:""; width:22px; height:1px; background:var(--blue); display:inline-block;}
+  h1.name{
+    font-family:var(--mono);
+    font-weight:700;
+    font-size:clamp(38px, 6vw, 68px);
+    letter-spacing:-.01em;
+    text-transform:uppercase;
+    line-height:1.02;
+  }
+
+  .title-block{
+    margin-top:32px;
+    border:1px solid var(--ink);
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    background:var(--paper-raised);
+    width:100%;
+  }
+  .title-block .cell{
+    padding:10px 16px;
+    border-right:1px solid var(--line-mid);
+  }
+  .title-block .cell:last-child{border-right:none;}
+  .title-block .cell .k{
+    font-family:var(--mono);
+    font-size:10px;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    color:var(--grey);
+    display:block;
+    margin-bottom:4px;
+  }
+  .title-block .cell .v{
+    font-family:var(--mono);
+    font-size:13px;
+    color:var(--ink);
+  }
+
+  @media (max-width:640px){
+    .title-block{grid-template-columns:repeat(2,1fr);}
+    .title-block .cell{border-bottom:1px solid var(--line-mid);}
+    .title-block .cell:nth-child(2n){border-right:none;}
+    .title-block .cell:nth-last-child(-n+2){border-bottom:none;}
+  }
+
+  .hero-name-row{
+    display:flex; align-items:center; justify-content:flex-start;
+    gap:24px; flex-wrap:wrap;
+  }
+
+  .about-btn{
+    display:inline-flex; align-items:center; gap:8px;
+    flex-shrink:0;
+    padding:12px 24px;
+    font-family:var(--mono); font-weight:600; font-size:13px;
+    letter-spacing:.08em; text-transform:uppercase;
+    border:2px solid var(--blue); color:var(--blue);
+    text-decoration:none;
+    transition:background .15s ease, color .15s ease;
+  }
+  .about-btn:hover{background:var(--blue); color:#0F1113;}
+
+  section.categories{padding:22px 0 64px;}
+  .categories-grid{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:28px;
+  }
+  @media (max-width:860px){
+    .categories-grid{grid-template-columns:1fr; gap:64px;}
+  }
+
+  .category-col{display:flex; flex-direction:column;}
+  .category-num{font-family:var(--mono); font-size:12px; color:var(--blue); display:block; margin-bottom:8px;}
+  a.category-title{
+    font-family:var(--mono); font-weight:700; font-size:clamp(19px, 2.1vw, 25px);
+    letter-spacing:-.01em; text-transform:uppercase; color:var(--ink);
+    text-decoration:none; transition:color .15s ease;
+    display:block; margin-bottom:8px;
+  }
+  a.category-title:hover{color:var(--blue-soft);}
+  .col-rule{height:1px; background:var(--line-mid); margin-bottom:22px;}
+
+  .viewport{
+    position:relative;
+    aspect-ratio:4/3;
+    overflow:hidden;
+    border:1px solid var(--line-mid);
+    background:var(--paper-raised);
+    margin-bottom:20px;
+  }
+  .viewport img{
+    width:100%; height:100%; object-fit:cover; display:block;
+  }
+  .viewport.contain-fit{background:#FFFFFF;}
+  .viewport.contain-fit img{
+    object-fit:contain; padding:0;
+  }
+  .crop{position:absolute; width:14px; height:14px; border:1px solid var(--ink); opacity:.55;}
+  .crop.tl{top:9px; left:9px; border-right:none; border-bottom:none;}
+  .crop.tr{top:9px; right:9px; border-left:none; border-bottom:none;}
+  .crop.bl{bottom:9px; left:9px; border-right:none; border-top:none;}
+  .crop.br{bottom:9px; right:9px; border-left:none; border-top:none;}
+
+  .part-no{font-family:var(--mono); font-size:10.5px; color:var(--blue); display:block; margin-bottom:8px;}
+  .col-title{
+    font-family:var(--mono); font-weight:600; font-size:16.5px;
+    text-transform:uppercase; letter-spacing:.01em; margin-bottom:8px;
+  }
+  .col-desc{color:var(--ink-soft); font-size:14px; line-height:1.55;}
+
+  footer{
+    padding:28px 0 40px;
+    display:flex; justify-content:space-between;
+    font-family:var(--mono); font-size:11px; color:var(--grey); letter-spacing:.05em;
+  }
+
+  @media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto;} }
+
+  .hub-intro{color:var(--ink-soft); font-size:16px; max-width:64ch; margin-top:18px;}
+  .back-link{font-family:var(--mono); font-size:12px; letter-spacing:.08em; text-transform:uppercase; color:var(--blue); text-decoration:none; display:inline-block; margin-bottom:26px;}
+  .back-link:hover{color:var(--blue-soft);}
+  section.hub-section{padding:40px 0 20px;}
+  .hub-label{font-family:var(--mono); font-size:12px; letter-spacing:.1em; text-transform:uppercase; color:var(--grey); margin-bottom:18px; display:block;}
+  .placeholder-tile{position:relative; aspect-ratio:4/3; border:1px solid var(--line-mid); background:var(--paper-raised); margin-bottom:20px; display:flex; align-items:center; justify-content:center; text-decoration:none;}
+  .placeholder-tile span.t{font-family:var(--mono); font-size:13px; letter-spacing:.08em; text-transform:uppercase; color:var(--grey); text-align:center; line-height:1.6;}
+  .text-card{border:1px solid var(--line-mid); background:var(--paper-raised); padding:22px 24px;}
+  .text-card .col-title{font-size:15.5px;}
+  .card-meta{font-family:var(--mono); font-size:11px; letter-spacing:.06em; text-transform:uppercase; color:var(--grey); margin-top:12px; display:block;}
+  .read-link{font-family:var(--mono); font-size:12px; letter-spacing:.06em; text-transform:uppercase; color:var(--blue); text-decoration:none; margin-top:12px; display:inline-block;}
+  .read-link:hover{color:var(--blue-soft);}
+  section.hub-section:last-of-type{padding-bottom:64px;}
+</style>
+</head>
+<body>
+
+<header class="sheet-bar">
+  <div class="wrap sheet-bar-inner">
+    <div class="sheet-bar-left">
+      <span class="mark">JF</span>
+      <span>Portfolio</span>
+    </div>
+    <nav class="sheet-nav">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <a class="back-link" href="index.html">&larr; All categories</a>
+    <div class="eyebrow">Category 01</div>
+    <h1 class="name">Professional Work</h1>
+    <p class="hub-intro">Design and process engineering work from industry, starting with my process engineering co-op at Entegris (January to June 2025).</p>
+  </div>
+</section>
+
+<section class="hub-section">
+  <div class="wrap">
+    <span class="hub-label">Write-ups</span>
+    <div class="categories-grid">
+      <div class="category-col">
+        <a class="viewport contain-fit" href="projects/measurement-fixture.html"><img src="assets/measurement-fixture.png" alt="CAD render of the measurement fixture"><span class="crop tl"></span><span class="crop tr"></span><span class="crop bl"></span><span class="crop br"></span></a>
+        <span class="part-no">No. 001</span>
+        <h3 class="col-title">High-Precision Measurement Fixture</h3>
+        <p class="col-desc">Handheld fixture for micrometer and caliper inspection of nickel alloy plates. Cut plate evaluation time by over 40%.</p>
+        <a class="read-link" href="projects/measurement-fixture.html">Read write-up &rarr;</a>
+      </div>
+      <div class="category-col">
+        <a class="placeholder-tile" href="projects/tube-polisher.html"><span class="t">No. 004<br>Tube Polisher Fixture</span><span class="crop tl"></span><span class="crop tr"></span><span class="crop bl"></span><span class="crop br"></span></a>
+        <span class="part-no">No. 004</span>
+        <h3 class="col-title">Tube Polisher Fixture</h3>
+        <p class="col-desc">Holds nickel tubes 2mm from a grinder-polisher with the operator&rsquo;s hands guarded. Cut a 1 to 2 minute hand-filing step to 3 to 5 seconds.</p>
+        <a class="read-link" href="projects/tube-polisher.html">Read write-up &rarr;</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hub-section">
+  <div class="wrap">
+    <span class="hub-label">More from Entegris</span>
+    <div class="categories-grid">
+      <div class="text-card">
+        <h3 class="col-title">Returned Part Measurement Study</h3>
+        <p class="col-desc">Measured nearly 500 returned discs by hand and compared caliper, vision system, and go/no-go gauge results in Minitab and Excel. Yield on those parts went from just under 50% to all parts passing.</p>
+        <span class="card-meta">Entegris, 2025</span>
+      </div>
+      <div class="text-card">
+        <h3 class="col-title">Disc Measurement Fixtures</h3>
+        <p class="col-desc">Small and large disc fixtures with loose tolerances so parts load without force, and grips shaped for the operator&rsquo;s non-dominant hand.</p>
+        <span class="card-meta">Entegris, 2025</span>
+      </div>
+      <div class="text-card">
+        <h3 class="col-title">Press Alignment Fixtures</h3>
+        <p class="col-desc">Custom parts matched to different molds to even out pressing pressure, improving part flatness by over 30%.</p>
+        <span class="card-meta">Entegris, 2025</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="wrap">
+  <span>&copy; 2026 Joshua Fleegler</span>
+  <span>Professional Work</span>
+</footer>
+
+</body>
+</html>
